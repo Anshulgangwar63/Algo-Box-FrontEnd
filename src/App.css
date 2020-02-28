@@ -1,0 +1,15 @@
+div.App{
+  width: 100%;
+}
+div.cnt{
+  /* align:left; */
+  float: left;
+  width: 47%;
+  padding-left: 1.5%;
+}
+
+#edit{
+  float:right;
+  width: 47%;
+  padding-right: 1%;
+}
