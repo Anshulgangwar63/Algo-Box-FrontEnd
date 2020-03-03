@@ -1,14 +1,14 @@
-div.App{
+div.Post{
   width: 100%;
 }
-div.cnt{
+div.content{
   /* align:left; */
   float: left;
   width: 47%;
   padding-left: 1.5%;
 }
 
-#edit{
+#editor{
   float:right;
   width: 47%;
   padding-right: 1%;
