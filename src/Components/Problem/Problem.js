@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import Editor from '../../Editor';
 import '../../styles/problemdisplay.css'
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ProbStat from '../Problem/ProbComp/ProbStat';
 import ProbSub from '../Problem/ProbComp/ProbSub';
 import ProbEd from '../Problem/ProbComp/ProbEd';
@@ -10,6 +10,8 @@ import ProblemBar from './ProblemBar';
 const Problem = (props) => {
     const problemDetail  = props.prob;
     // console.log(problemDetail.id);
+    // const problemPath = `/${problemDetail.id}/problem`;
+    // console.log(problemPath);
     return(
         <div className="problem-page">
             <div className="problem-head-box">
@@ -18,11 +20,18 @@ const Problem = (props) => {
             <div>
                 <ProblemBar problemDetail = {problemDetail}/>
             </div>
-            <BrowserRouter>
-                <Route exact path={`/${problemDetail.id}/problem`} component={ProbStat}/>
-                <Route exact path={`/${problemDetail.id}/submission`} component={ProbSub} />
-                <Route exact path={`/${problemDetail.id}/editorial`} component={ProbEd} />
-            </BrowserRouter>
+            <Switch>
+                <Route path={`/${problemDetail.id}/problem`}>
+                    <ProbStat />
+                </Route>
+                <Route path={`/${problemDetail.id}/submission`}>
+                    <ProbSub />
+                </Route>
+                <Route path={`/${problemDetail.id}/editorial`}>
+                    <ProbEd />
+                </Route>
+            </Switch>
+            <Editor />
         </div>
     );
 }
