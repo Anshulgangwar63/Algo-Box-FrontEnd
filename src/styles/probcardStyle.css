@@ -1,0 +1,45 @@
+.card {
+    margin:40px 50px;
+    box-shadow: 7px 14px 32px -8px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 7px 14px 32px -8px rgba(0,0,0,0.69);
+    -moz-box-shadow: 7px 14px 32px -8px rgba(0,0,0,0.69);
+    padding: 20px 30px;
+    display: flex;
+    border-radius: 10px;
+}
+
+.problem-part {
+    flex:4;
+}
+
+.problem-part .problem{
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(156, 156, 156);
+}
+
+.button-part  {
+    flex:1;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rebeccapurple; */
+}
+
+.button-part p {
+     background: linear-gradient(270deg, rgba(241,196,15,1) 27%, rgba(243,156,18,0.9051995798319328) 59%);
+    width: 100px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 25px;
+    padding: 15px 10px;
+    transition: .5s;
+}
+
+
+.button-part p:hover {
+    transition: .5s;
+    box-shadow: 3.5px 7px 12px -5px rgba(71, 71, 71, 0.596);
+}

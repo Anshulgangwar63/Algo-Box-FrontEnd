@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* background-color: thistle; */
+}
+.Navbar {
+    background: rgb(241,196,15);
+    background: linear-gradient(270deg, rgba(241,196,15,1) 27%, rgba(243,156,18,0.9051995798319328) 59%);
+    display: flex;
+    padding: 8px 50px;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.logo {
+    flex: 1;
+    /* background-color: red; */
+}
+
+.logo p.logo-text {
+    font-size: 25px;
+    font-family: 'Bungee Inline',cursive;
+}
+
+.nav-links-container {
+    /* background-color: teal; */
+    margin-left: 20px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-links {
+    justify-content: center;
+    flex: 1;
+    text-decoration: none;
+    color: white;
+}
+
+.nav-links p {
+    font-weight: bold;
+    font-size: 20px;
+}

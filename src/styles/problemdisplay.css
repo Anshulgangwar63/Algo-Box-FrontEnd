@@ -1,0 +1,20 @@
+.problem-head-box {
+    background-color: rgba(214, 214, 214, 0.89);
+    padding: 30px 20px;
+}
+
+.problem-title {
+    color: black;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+
+/* =======================
+    Problem-Bar styles  
+========================== */
+
+.prob-bar {
+    display: flex;
+
+} 

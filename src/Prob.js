@@ -1,50 +1,51 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css';
 import Editor from './Editor';
+import Problem from './Components/Problem/Problem';
+import './styles/problemdisplay.css';
 
 class Prob extends Component {
     state = {
-        post: null
+        problemDetail: null,
+        loaded:false
     }
-    toggle = () => {
-        let x = document.getElementById("editor");
-        let y = document.getElementById("post_text");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-            y.style.width = "47%";
-        } else {
-            x.style.display = "none";
-            y.style.width = "85%";
-        }
-    }
+    // toggle = () => {
+    //     let x = document.getElementById("editor");
+    //     let y = document.getElementById("post_text");
+    //     if (x.style.display === "none") {
+    //         x.style.display = "flex";
+    //         y.style.width = "47%";
+    //     } else {
+    //         x.style.display = "block";
+    //         y.style.width = "85%";
+    //     }
+    // }
     componentDidMount() {
         let id = this.props.match.params.post_id;
         axios.get('https://jsonplaceholder.typicode.com/posts/' + id)
           .then(res => {
               this.setState({
-                  post: res.data
+                  problemDetail: res.data,
+                  loaded:true,
               })
           })
     }
     render() {
-        const post = this.state.post ? (
-            <div>
-                <h2>{this.state.post.title}</h2>
-                {this.state.post.body}
-            </div>
-        ) : (
-            <div>Loading post...</div>
-        )
+        if(!this.state.loaded) {
+            return <p>Loading .....</p>
+        }
+
         return(
             <div className="Post">
-              <div className="content" id="post_text">
+                <Problem prob={this.state.problemDetail}/>
+              {/* <div className="content" id="post_text">
                 { post }
               </div>
+              
               <button onClick={this.toggle}>Hide/Show</button>
               <div id="editor">
                 <Editor />
-              </div>
+              </div> */}
             </div>
         );
     }

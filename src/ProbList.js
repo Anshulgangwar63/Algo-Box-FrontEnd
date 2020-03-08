@@ -1,40 +1,30 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-
+import Probcard from './Components/Problem/ProbCard';
 class ProbList extends Component {
   state = {
-    probs: [ ]
+    probs: [ ],
+    loaded: false
   }
   componentDidMount() {
     axios.get('https://jsonplaceholder.typicode.com/posts')
       .then(res => {
         // console.log(res);
         this.setState ({
-          probs: res.data.slice(0, 10)
+          probs: res.data.slice(0, 10),
+          loaded: true
         })
         console.log(this.state);
       }) 
   }
   render() {
-    const { probs } = this.state;
-    const probList = probs.length ? (
-      probs.map(prob => {
-        return(
-          <div>
-            <Link to={'/'+prob.id}>
-              { prob.title }
-            </Link>
-          </div>
-        )
-      })
-    ) : (
-      <div className="center"></div>
-    )
-    return(
+    if(!this.state.loaded) {
+      return <p>Loading</p>
+    }
+    // console.log(this.state.probs)
+    return (
       <div>
-        <h1>Hey There</h1>
-        { probList }
+      <Probcard probs={this.state.probs}/>
       </div>
     );
   }
