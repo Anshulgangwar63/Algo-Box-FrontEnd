@@ -23,6 +23,7 @@ const Problem = (props) => {
                 <Route exact path={`/${problemDetail.id}/submission`} component={ProbSub} />
                 <Route exact path={`/${problemDetail.id}/editorial`} component={ProbEd} />
             </BrowserRouter>
+            <Editor />
         </div>
     );
 }
