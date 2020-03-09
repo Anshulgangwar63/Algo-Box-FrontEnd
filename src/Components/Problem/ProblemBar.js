@@ -7,7 +7,6 @@ import ProbEd from '../Problem/ProbComp/ProbEd';
 
 const ProblemBar = (props) => {
     const problem = props.problemDetail;
-    console.log(problem.id);
     return(
         <div className="Prob-bar">
             <Link to={`/${problem.id}/problem`}>Problem</Link>

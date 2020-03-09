@@ -1,22 +1,43 @@
-import React, { useState, Component } from 'react';
+import React, { useState, Component } from "react";
 import { BrowserRouter, Link, Route } from "react-router-dom";
-import ProbList from './ProbList';
-import Prob from './Prob'
-import Navbar from './Components/Main/Navbar';
-import PrivateRoute from './PrivateRoute';
+import ProbList from "./ProbList";
+import Prob from "./Prob";
+import Navbar from "./Components/Main/Navbar";
+import PrivateRoute from "./PrivateRoute";
 import Home from "./pages/Home";
 import Admin from "./pages/Admin";
 import { AuthContext } from "./context/auth";
 import Login from "./pages/Login";
-import Signup from './pages/Signup';
-import Logout from './pages/Logout';
+import Signup from "./pages/Signup";
+import Logout from "./pages/Logout";
+
+var jwt = require("jsonwebtoken");
 
 function App(props) {
-  const [authTokens, setAuthTokens] = useState(localStorage.getItem('tokens') || '');
-  const setTokens = (data) => {
-    localStorage.setItem("tokens", JSON.stringify(data));
-    setAuthTokens(data);
-  }
+  const verifyToken = () => {
+    const tokens = localStorage.getItem("authToken");
+    let decodedToken = undefined;
+    try {
+      decodedToken = jwt.verify(
+        JSON.parse(JSON.stringify(tokens)),
+        "secretkey"
+      );
+    } catch (err) {
+      console.log(err);
+    }
+    console.log(decodedToken);
+    return decodedToken;
+  };
+  const [authTokens, setAuthTokens] = useState(verifyToken());
+  const setTokens = data => {
+    console.log(data);
+    jwt.sign(data, "secretkey", function(err, token) {
+      setAuthTokens(token);
+      localStorage.setItem("authToken", token);
+      console.log(token);
+    });
+  };
+
   return (
     <div className="App">
       <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>

@@ -1,34 +1,44 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import logoImg from "../img/logo.jpg";
-import { Card, Logo, Form, Input, Button, Error } from "../Components/AuthForms";
+import {
+  Card,
+  Logo,
+  Form,
+  Input,
+  Button,
+  Error
+} from "../Components/AuthForms";
 import { useAuth } from "../context/auth";
 
 function Login(props) {
   const [isLoggedIn, setLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const { setAuthTokens } = useAuth();
-  const referer = '/';
+  const referer = "/";
 
   function postLogin() {
-    axios.post("http://127.0.0.1:5000/api/auth", {
-      'username': userName,
-      'password': password
-    }).then(result => {
-      if (result.status === 200) {
-        setAuthTokens(result.data);
-        setLoggedIn(true);
-      } else {
+    axios
+      .post("http://127.0.0.1:5000/api/auth", {
+        username: username,
+        password: password
+      })
+      .then(result => {
+        if (result.status === 200) {
+          console.log(result.data);
+          setAuthTokens(result.data);
+          setLoggedIn(true);
+        } else {
+          setIsError(true);
+        }
+      })
+      .catch(e => {
         setIsError(true);
-      }
-    }).catch(e => {
-      setIsError(true);
-    });
+      });
   }
-
   if (isLoggedIn) {
     return <Redirect to={referer} />;
   }
@@ -39,7 +49,7 @@ function Login(props) {
       <Form>
         <Input
           type="username"
-          value={userName}
+          value={username}
           onChange={e => {
             setUserName(e.target.value);
           }}
@@ -56,7 +66,9 @@ function Login(props) {
         <Button onClick={postLogin}>Sign In</Button>
       </Form>
       <Link to="/signup">Don't have an account?</Link>
-        { isError &&<Error>The username or password provided were incorrect!</Error> }
+      {isError && (
+        <Error>The username or password provided were incorrect!</Error>
+      )}
     </Card>
   );
 }

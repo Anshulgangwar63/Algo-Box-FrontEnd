@@ -8,7 +8,7 @@ const Navbar = () => {
     let Logout = 'Logout';
     let Login = 'Login';
     let tolink;
-    if (authTokens !== 'undefined') {
+    if (authTokens !== undefined) {
         tolink='/logout'
     } else {
         tolink='/login'
@@ -33,7 +33,7 @@ const Navbar = () => {
                 </Link>
                 
                 <Link to={tolink} className="nav-links">
-                {(authTokens !== 'undefined') ?(Logout):(Login)}
+                {(authTokens !== undefined) ?(Logout):(Login)}
                 </Link> 
             </div>
         </div>
