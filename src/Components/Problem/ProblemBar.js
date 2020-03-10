@@ -1,6 +1,9 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
 import '../../styles/problemdisplay.css';
+import ProbStat from '../Problem/ProbComp/ProbStat';
+import ProbSub from '../Problem/ProbComp/ProbSub';
+import ProbEd from '../Problem/ProbComp/ProbEd';
 
 const ProblemBar = (props) => {
     const problem = props.problemDetail;
