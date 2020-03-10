@@ -1,15 +1,15 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import '../../styles/problemdisplay.css';
 
 const ProblemBar = (props) => {
     const problem = props.problemDetail;
-    console.log(problem.id);
+    console.log(problem.code);
     return(
         <div className="Prob-bar">
-            <Link to={`/${problem.id}/problem`}>Problem</Link>
-            <Link to={`/${problem.id}/submission`}>Submission</Link>
-            <Link to={`/${problem.id}/editorial`}>Editorial</Link>
+            <NavLink exact to={`/${problem.code}`} className="bar-link">Problem</NavLink>
+            <NavLink to={`/${problem.code}/submission`} className="bar-link">Submission</NavLink>
+            <NavLink to={`/${problem.code}/editorial`} className="bar-link">Editorial</NavLink>
         </div>
     );          
 }

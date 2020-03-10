@@ -2,9 +2,11 @@ import React from 'react';
 
 const ProbEd = () => {
     return (
-        <div>
-            <h1>Gand</h1>
+        <div className= "problem-statement-body">
+        <div className="editorial-box">
+            <h2>No Editorial</h2>
         </div>
+    </div>
     )
 }
 
