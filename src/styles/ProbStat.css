@@ -1,0 +1,78 @@
+.problem-statement-body {
+    display: block;
+    padding: 10px 8px;
+    border: 1px solid rgba(236, 236, 236, 0.89);
+    border-top: 0px solid white;
+    -webkit-box-shadow: 10px 10px 15px -5px rgba(0,0,0,0.43);
+    -moz-box-shadow: 10px 10px 15px -5px rgba(0,0,0,0.43);
+    box-shadow: 10px 10px 15px -5px rgba(0,0,0,0.43);
+}
+
+.problem-body-header {
+    font-size: 20px;
+    font-style: italic;
+    padding: 10px;
+}
+
+.problem-statement {
+    background-color: rgba(236, 236, 236, 0.89);
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+
+.problem-statement h4 {
+    margin-bottom: 10px;
+}
+
+.problem-statement h5 {
+    margin-bottom: 10px;
+}
+
+.problem-statement .problem-input{
+    background: white;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+/*===============
+ editor-box styles
+ =================*/
+
+.editor-box {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid rgba(236, 236, 236, 0.89);
+    -webkit-box-shadow: 10px 10px 15px -5px rgba(0,0,0,0.43);
+    -moz-box-shadow: 10px 10px 15px -5px rgba(0,0,0,0.43);
+    box-shadow: 10px 10px 15px -5px rgba(0,0,0,0.43);
+}
+
+.editor-bar {
+    padding: 10px;
+    background-color: rgba(236, 236, 236, 0.89);
+    margin-bottom: 10px;
+}
+
+
+#lang {
+    padding: 5px;
+    width: 130px;
+    border-radius: 5px;
+    font-size: 15px;
+    border: 2px solid rgba(236, 236, 236, 0.89);
+    outline: none;
+}
+
+/* submission styles */
+
+.submission-box {
+    background-color: rgba(236, 236, 236, 0.89);
+    padding: 10px;
+    text-align: center;
+}
+
+.editorial-box {
+    background-color: rgba(236, 236, 236, 0.89);
+    padding: 10px;
+    text-align: center;
+}

@@ -21,7 +21,6 @@ class ProbList extends Component {
     if(!this.state.loaded) {
       return <p>Loading</p>
     }
-    // console.log(this.state.probs)
     return (
       <div>
       <Probcard probs={this.state.probs}/>

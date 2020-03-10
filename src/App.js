@@ -3,6 +3,7 @@ import ProbList from './ProbList';
 import Prob from './Prob'
 import { BrowserRouter, Route } from 'react-router-dom';
 import Navbar from './Components/Main/Navbar';
+
 class App extends Component {
   render() {
     return (

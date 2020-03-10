@@ -8,6 +8,7 @@ class Editor extends React.Component {
       code: '// type your code...',
       language : 'cpp',
     }
+    console.log(props);
   }
   editorDidMount(editor, monaco) {
     console.log('editorDidMount', editor);
@@ -18,22 +19,8 @@ class Editor extends React.Component {
       ...this.state,
       code: newValue
     })
-    // console.log('onChange', newValue, e);
   }
-  handleChange = (e) => {
-    this.setState({
-      language: e.target.value
-    })
-    console.log(e.target.value);
-  }
-  toggle = () => {
-    let x = document.getElementById("toggle");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
+
   render() {
     const code = this.state.code;
     const options = {
@@ -41,16 +28,8 @@ class Editor extends React.Component {
     };
     return (
     <div>
-      {/* <button onClick={this.toggle}>Hide/Show</button> */}
-      {/* <div id="toggle"> */}
-      <select id="lang" onChange={this.handleChange}>
-        <option value="cpp">C++</option>
-        <option value="python">Python</option>
-        <option value="java">Java</option>
-        <option value="javascript">JavaScript</option>
-      </select>
       <MonacoEditor
-        width="650"
+        width="950"
         height="600"
         language={this.state.language}
         theme="vs-dark"
