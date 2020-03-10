@@ -17,24 +17,17 @@ function App(props) {
   const verifyToken = () => {
     const tokens = localStorage.getItem("authToken");
     let decodedToken = undefined;
-    try {
-      decodedToken = jwt.verify(
-        JSON.parse(JSON.stringify(tokens)),
-        "secretkey"
-      );
-    } catch (err) {
-      console.log(err);
-    }
-    console.log(decodedToken);
+    decodedToken = jwt.verify(
+      JSON.parse(JSON.stringify(tokens)),
+      "secretkey"
+    );
     return decodedToken;
   };
   const [authTokens, setAuthTokens] = useState(verifyToken());
   const setTokens = data => {
-    console.log(data);
     jwt.sign(data, "secretkey", function(err, token) {
       setAuthTokens(token);
       localStorage.setItem("authToken", token);
-      console.log(token);
     });
   };
 
