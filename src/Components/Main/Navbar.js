@@ -1,8 +1,18 @@
 import React from 'react';
 import '../../styles/main.css';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { useAuth } from "../../context/auth";
 
 const Navbar = () => {
+    const { authTokens } = useAuth();
+    let Logout = 'Logout';
+    let Login = 'Login';
+    let tolink;
+    if (authTokens !== undefined) {
+        tolink='/logout'
+    } else {
+        tolink='/login'
+    }
     return(
         <div className="Navbar">
             <div className="logo">
@@ -21,6 +31,10 @@ const Navbar = () => {
                  <Link to={'/'} className="nav-links">
                     <p>Profile</p>
                 </Link>
+                
+                <Link to={tolink} className="nav-links">
+                {(authTokens !== undefined) ?(Logout):(Login)}
+                </Link> 
             </div>
         </div>
     )

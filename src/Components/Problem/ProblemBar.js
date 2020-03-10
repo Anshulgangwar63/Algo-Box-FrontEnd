@@ -4,7 +4,6 @@ import '../../styles/problemdisplay.css';
 
 const ProblemBar = (props) => {
     const problem = props.problemDetail;
-    console.log(problem.code);
     return(
         <div className="Prob-bar">
             <NavLink exact to={`/${problem.code}`} className="bar-link">Problem</NavLink>
