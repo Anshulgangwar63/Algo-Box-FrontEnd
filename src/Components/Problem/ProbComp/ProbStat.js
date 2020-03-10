@@ -39,6 +39,7 @@ const ProbStat = ({ problemDetail }) => {
                 <div className="problem-statement">
                     <p>{problemDetail.output_format}</p>
                 </div>
+                <hr />
                 <h3 className="problem-body-header">Sample Cases</h3>
                 {samples}
             </div>
