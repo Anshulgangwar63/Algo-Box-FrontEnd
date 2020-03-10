@@ -6,6 +6,7 @@ import ProbSub from '../Problem/ProbComp/ProbSub';
 import ProbEd from '../Problem/ProbComp/ProbEd';
 import ProblemBar from './ProblemBar';
 
+
 class Problem extends Component {
     constructor() {
         super();
@@ -89,6 +90,7 @@ class Problem extends Component {
             </div>
         );
     }
+
 }
 
 export default Problem;
